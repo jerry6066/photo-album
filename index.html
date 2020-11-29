@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Amazon Transcribe WebSocket API - Sample Application</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+  <link rel="stylesheet" href="https://cdn.shoelace.style/1.0.0-beta24/shoelace.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <form id="theForm">
+    <input id="theFile" name="file" type="file" accept="image/jpeg" />
+    <button id="theButton" type="button">SEND</button>
+  </form>
+  <div class="container">
+
+    <div id="error" class="isa_error"></div>
+
+    <div class="row">
+            <div class="col">
+                <label>Access ID:</label>
+                <input type="password" id="access_id" placeholder="ACCESS ID" value="" />
+
+                <label>Secret Key:</label>
+                <input type="password" id="secret_key" placeholder="SECRET KEY" value="" />
+            </div>
+        </div>
+    <textarea id="transcript" placeholder="Press Start and speak into your mic" rows="5" readonly="readonly"></textarea>
+    <div class="row">
+      <div class="col">
+        <button id="start-button" class="button-xl" title="Start Transcription">
+          <i class="fa fa-microphone"></i> Start
+        </button>
+        <button id="stop-button" class="button-xl" title="Stop Transcription" disabled="true"><i class="fa fa-stop-circle"></i> Stop
+        </button>
+        <button id="reset-button" class="button-xl button-secondary" title="Clear Transcript">
+          Clear Transcript
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="upload.js"></script>
+  <script src="dist/main.js"></script>
+</body>
+
+</html>
