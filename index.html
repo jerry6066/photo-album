@@ -27,7 +27,7 @@
                 <input type="password" id="secret_key" placeholder="SECRET KEY" value="" />
             </div>
         </div>
-    <textarea id="transcript" placeholder="Press Start and speak into your mic" rows="5" readonly="readonly"></textarea>
+    <textarea id="transcript" placeholder="Press Start and speak into your mic" rows="5"></textarea>
     <div class="row">
       <div class="col">
         <button id="start-button" class="button-xl" title="Start Transcription">
@@ -38,9 +38,13 @@
         <button id="reset-button" class="button-xl button-secondary" title="Clear Transcript">
           Clear Transcript
         </button>
+        <button type="button" name="button" id='search'>Search</button>
       </div>
     </div>
   </div>
+  <img src="" alt="" id='image1' class="hidden" style="width:100px;height:100px">
+  <img src="" alt="" id='image2' class="hidden" style="width:100px;height:100px">
+  <img src="" alt="" id='image3' class="hidden" style="width:100px;height:100px">
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="upload.js"></script>
