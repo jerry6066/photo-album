@@ -29,6 +29,9 @@ $('#theButton').click(function() {
     });
 });
 
+var image_arr = [];
+var page = 0;
+
 $('#search').click(function() {
   var data = {'message': $('#transcript')[0].value}
   console.log(data)
@@ -43,17 +46,47 @@ $('#search').click(function() {
   .done(function(response){
     $('img').addClass('hidden')
     image_arr = response.imagePaths;
-    if (image_arr.length > 0) {
-      $('#image1').attr('src', image_arr[0]);
-      $('#image1').removeClass('hidden')
-    };
-    if (image_arr.length > 1) {
-      $('#image2').attr('src', image_arr[1]);
-      $('#image2').removeClass('hidden')
-    };
-    if (image_arr.length > 2) {
-      $('#image3').attr('src', image_arr[2]);
-      $('#image3').removeClass('hidden')
-    }
+    console.log(image_arr)
+    page = 0;
+    $('#prev').removeClass('hidden')
+    $('#next').removeClass('hidden')
+    display(page)
   })
+})
+
+function display(page) {
+  $('img').addClass('hidden');
+  $('#prev').prop('disabled', true);
+  $('#next').prop('disabled', true);
+  if (page>0) {
+    $('#prev').prop('disabled', false);
+  }
+  const num = page * 3;
+  if (image_arr.length > num) {
+    $('#image1').attr('src', image_arr[num]);
+    $('#image1').removeClass('hidden')
+  };
+  if (image_arr.length > num + 1) {
+    $('#image2').attr('src', image_arr[num+1]);
+    $('#image2').removeClass('hidden')
+  };
+  if (image_arr.length > num + 2) {
+    $('#image3').attr('src', image_arr[num+2]);
+    $('#image3').removeClass('hidden')
+  }
+  if (image_arr.length > num + 3) {
+    $('#next').prop('disabled', false);
+  }
+}
+
+$('#prev').click(function(){
+  if (page>0) {
+    page = page - 1
+    display(page)
+  }
+})
+
+$('#next').click(function(){
+  page = page + 1
+  display(page)
 })
