@@ -4,7 +4,7 @@ $('#theButton').click(function() {
   data = {'name': file.name}
   $.ajax({
       type: 'PUT',
-      url: "https://1hceq7jgh7.execute-api.us-east-1.amazonaws.com/v0/upload",
+      url: "https://d9ib6pq9c7.execute-api.us-east-1.amazonaws.com/test/upload",
       crossDomain: true,
       processData: false,
       headers: {'Content-Type': 'application/json'},
@@ -37,7 +37,7 @@ $('#search').click(function() {
   console.log(data)
   $.ajax({
     type: 'POST',
-    url: 'https://1hceq7jgh7.execute-api.us-east-1.amazonaws.com/v0/search',
+    url: 'https://d9ib6pq9c7.execute-api.us-east-1.amazonaws.com/test/search',
     crossDomain: true,
     headers: {'Content-Type': 'application/json'},
     data: JSON.stringify(data),
